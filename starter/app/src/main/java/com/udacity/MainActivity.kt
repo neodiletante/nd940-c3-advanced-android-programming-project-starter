@@ -42,9 +42,10 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.download_notification_channel_name)
         )
         custom_button.setOnClickListener {
-            custom_button.animateArc()
+
             Log.d("FLUX", "selected " + radioGroup.checkedRadioButtonId)
             if (radioGroup.checkedRadioButtonId != -1){
+                custom_button.animateArc()
                 when(radioGroup.checkedRadioButtonId){
                     R.id.glide -> {
                         description = GLIDE_FILE_NAME
@@ -128,7 +129,8 @@ class MainActivity : AppCompatActivity() {
                 .setRequiresCharging(false)
                 .setAllowedOverMetered(true)
                 .setAllowedOverRoaming(true)
-        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
+
+      //  .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
 
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
@@ -150,6 +152,12 @@ class MainActivity : AppCompatActivity() {
         private const val URL =
             "https://github.com/udacity/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
         private const val CHANNEL_ID = "channelId"
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(receiver)
+
     }
 
 }

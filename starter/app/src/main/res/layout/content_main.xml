@@ -43,6 +43,11 @@
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/radioGroup"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        app:arcColor="#00FFFF"
+        app:loadingColor="#FF5555"
+        app:rectColor="#9955AA"
+        app:textColor="#003366"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

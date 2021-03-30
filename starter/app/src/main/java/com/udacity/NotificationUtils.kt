@@ -23,6 +23,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationCompat.PRIORITY_DEFAULT
 import androidx.core.app.NotificationCompat.PRIORITY_HIGH
 import androidx.core.app.TaskStackBuilder
 
@@ -62,6 +63,7 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
     val resultPendingIntent: PendingIntent? = TaskStackBuilder.create(applicationContext).run {
         // Add the intent, which inflates the back stack
 
+
         addNextIntentWithParentStack(resultIntent)
 
         // Get the PendingIntent containing the entire back stack
@@ -82,15 +84,12 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         .setContentText(messageBody)
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
-        .setPriority(PRIORITY_HIGH)
+        .setPriority(PRIORITY_DEFAULT)
        // .setContentIntent(resultPendingIntent)
-
-
-            .addAction(
-                R.drawable.ic_assistant_black_24dp,
-                "Check the status",
-                resultPendingIntent
-
+        .addAction(
+            R.drawable.ic_assistant_black_24dp,
+            "Check the status",
+            resultPendingIntent
         )
 
 

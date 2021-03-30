@@ -13,10 +13,12 @@
 
     <Transition
         app:constraintSetStart="@+id/startDrag"
-        app:constraintSetEnd="@+id/endDrag">
+        app:constraintSetEnd="@+id/endDrag"
+        app:autoTransition="animateToEnd">
         <OnSwipe app:touchAnchorId="@id/egg"
             app:touchAnchorSide="middle"
-            app:dragDirection="dragUp"/>
+            app:dragDirection="dragUp"
+            />
 
         <KeyFrameSet>
         <KeyPosition
