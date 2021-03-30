@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Transition
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:duration="2000">
+        <OnClick
+            app:targetId="@id/btnOk"
+            app:clickAction="toggle" />
+    </Transition-->
+
+    <Transition
+        app:constraintSetStart="@+id/startDrag"
+        app:constraintSetEnd="@+id/endDrag">
+        <OnSwipe app:touchAnchorId="@id/egg"
+            app:touchAnchorSide="middle"
+            app:dragDirection="dragUp"/>
+
+        <KeyFrameSet>
+        <KeyPosition
+            app:framePosition="25"
+            app:motionTarget="@id/egg"
+            app:keyPositionType="parentRelative"
+            app:percentX="0.6"
+            />
+        <KeyPosition
+            app:framePosition="50"
+            app:motionTarget="@id/egg"
+            app:keyPositionType="parentRelative"
+            app:percentX="0.5"
+            />
+        <KeyPosition
+            app:framePosition="75"
+            app:motionTarget="@id/egg"
+            app:keyPositionType="parentRelative"
+            app:percentX="0.6"
+            />
+        <KeyAttribute
+            app:framePosition="50"
+            app:motionTarget="@id/egg"
+            android:scaleY="2.0"
+            android:scaleX="2.0"
+            />
+        <KeyAttribute
+            app:framePosition="85"
+            app:motionTarget="@id/btnOk"
+            android:alpha="0.0"
+            />
+    </KeyFrameSet>
+    </Transition>
+
+    <!--ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet-->
+
+
+    <ConstraintSet android:id="@+id/startDrag">
+        <Constraint
+            android:id="@+id/egg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            />
+        <Constraint
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.0"
+            />
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/endDrag">
+
+        <Constraint
+            android:id="@+id/egg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="1.0"
+            />
+    </ConstraintSet>
+</MotionScene>
