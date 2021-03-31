@@ -1,6 +1,7 @@
 package com.udacity
 
 import android.app.NotificationManager
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -34,8 +35,15 @@ class DetailActivity : AppCompatActivity() {
         file_name.setText(fileNameText)
         status.setText(statusText)
         btnOk.setOnClickListener {
-            this.finish()
+            navigateToMain()
         }
     }
+
+    fun navigateToMain(){
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
+
 
 }

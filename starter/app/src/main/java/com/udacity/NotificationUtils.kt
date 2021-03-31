@@ -85,7 +85,7 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
         .setPriority(PRIORITY_DEFAULT)
-       // .setContentIntent(resultPendingIntent)
+        .setContentIntent(resultPendingIntent)
         .addAction(
             R.drawable.ic_assistant_black_24dp,
             "Check the status",
